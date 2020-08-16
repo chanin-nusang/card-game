@@ -1,0 +1,20 @@
+นายชนินทร์ หนูแสง  6110110589  SECTION 01
+
+จากโปรแกรมดังกล่าว ได้มีการปรับปรุงเงื่อนไขของเกมใน WordCard.js 
+คือจะเพิ่มการตรวจสอบว่า ถ้าหากเล่นเกมครบ 3 ครั้ง แล้วยังตอบไม่ถูกต้อง
+จะขึ้นข้อความใน console ว่า "You lose!" แล้วสิ้นสุดการเล่นเกม 
+และในเงื่อนไขสุดท้าย จะเพิ่มในส่วนของการดึงค่าจาก attempt ออกมาแสดงใน console
+เพื่อบอกให้ผู้เล่นรู้ว่าเหลือจำนวนครั้งในการเล่นเกมอีกเท่าไหร่
+
+if(guess.length == state.word.length){
+            if(guess == state.word){
+                console.log('Yeah!')
+                setState({...state, guess: '', completed: true})
+            }else if(state.attempt == 3){
+                console.log('You lose!')
+                setState({...state, guess: '', completed: true})
+            }else{
+                console.log("Reset, You have " + (3-state.attempt) + " time.")
+                setState({...state, guess: '', attempt: state.attempt + 1})
+            }
+        }
